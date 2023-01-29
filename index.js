@@ -69,12 +69,13 @@ function init() {
 	})
 
 	var planetbuttons = document.getElementsByClassName('planetbuttons');
-	console.log(planetbuttons);
-
+	
+//let id = document.getElementsByTagName("a")[0].id;
 	for (var i = 0; i < planetbuttons.length; i++) {
+		let id =document.getElementsByClassName('planetbuttons')[i].id;
 		planetbuttons.item(i).addEventListener('click', function(i) {
-			console.log(planetbuttons.item(i).id);
-			showPlanetData(parseInt(planetbuttons.item(i).id));
+			console.log(id);
+			showPlanetData(parseInt(id-1));
 		});
 	}
 
