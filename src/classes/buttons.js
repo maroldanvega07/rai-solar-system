@@ -6,9 +6,15 @@ export default class Buttons {
     }
 
     addPlanetButtons() {
+
         var btn = document.createElement("button");
-        btn.innerHTML = "Earth";
+        btn.innerHTML = "Control Rotation";
+        btn.id = 'toggleRotation';
         this.buttonControls.appendChild(btn);   
     }
+
+
+
+
 }
 

@@ -40,6 +40,11 @@ function init() {
 	controls.update();
 
 	const buttons = new Buttons().addPlanetButtons();
+
+	document.getElementById('toggleRotation').addEventListener('click', function() {
+		enableRotation = !enableRotation;
+	})
+
 	renderer.setSize(container.clientWidth, container.clientHeight);
 	renderer.setPixelRatio(window.devicePixelRatio);
 	container.appendChild( renderer.domElement );
