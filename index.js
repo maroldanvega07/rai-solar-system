@@ -19,7 +19,7 @@ init();
 
 
 function showPlanetData(i) {
-	console.log(data);
+	console.log(data.planets[i]);
 }
 
 
@@ -67,8 +67,9 @@ function init() {
 	console.log(planetbuttons);
 
 	for (var i = 0; i < planetbuttons.length; i++) {
-		planetbuttons.item(i).addEventListener('click', function() {
+		planetbuttons.item(i).addEventListener('click', function(i) {
 			console.log(planetbuttons.item(i).id);
+			showPlanetData(parseInt(planetbuttons.item(i).id));
 		});
 	}
 
