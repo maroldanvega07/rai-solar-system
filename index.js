@@ -8,7 +8,7 @@ import Planet  from './src/classes/planet.js';
 import Star  from './src/classes/star.js';
 import Buttons from './src/classes/buttons.js';
 
-let stats, INTERSECTED, radius, theta =0, raycaster, pointer, scene, camera, ambientLight, controls, renderer, plight, container = document.getElementById("canvas");;
+let enableRotation=true, stats, INTERSECTED, radius, theta =0, raycaster, pointer, scene, camera, ambientLight, controls, renderer, plight, container = document.getElementById("canvas");;
 init();
 
 function init() {
@@ -90,16 +90,19 @@ scene.add(solar_system);
 const EARTH_YEAR = 2 * Math.PI * (1/60) * (1/60);
 
 function animate() {
-	sun.rotation.y += 0.001;
-	mercury.rotation.y += EARTH_YEAR * 4;
-	venus.rotation.y += EARTH_YEAR * 2;
-	earth.rotation.y += EARTH_YEAR;
-	mars.rotation.y += EARTH_YEAR  * 0.5;
-    jupiter.rotation.y+= EARTH_YEAR;
-	saturn.rotation.y+= EARTH_YEAR;
-	uranus.rotation.y+= EARTH_YEAR;
-	neptune.rotation.y+= EARTH_YEAR;
-	pluto.rotation.y+= EARTH_YEAR;
+
+	if(enableRotation == true) {
+		sun.rotation.y += 0.001;
+		mercury.rotation.y += EARTH_YEAR * 4;
+		venus.rotation.y += EARTH_YEAR * 2;
+		earth.rotation.y += EARTH_YEAR;
+		mars.rotation.y += EARTH_YEAR  * 0.5;
+		jupiter.rotation.y+= EARTH_YEAR;
+		saturn.rotation.y+= EARTH_YEAR;
+		uranus.rotation.y+= EARTH_YEAR;
+		neptune.rotation.y+= EARTH_YEAR;
+		pluto.rotation.y+= EARTH_YEAR;
+	}
 
 	requestAnimationFrame( animate );		
 	renderer.render( scene, camera );
