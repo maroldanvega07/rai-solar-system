@@ -46,16 +46,30 @@ function init() {
 // sun
 const sun = new THREE.Group().add(new Star(30,0,'src/assets/Sun/sun.jpeg').getStar());
 const mercury = new THREE.Group().add(new Planet(0.15,89,'src/assets/Mercury/mercury.jpg').getPlanet());
-const venus = new THREE.Group().add(new Planet(0.15,97,'src/assets/Venus/venus.jpg').getPlanet());
+const venus = new THREE.Group().add(new Planet(0.42,97,'src/assets/Venus/venus.jpg').getPlanet());
 const earth = new THREE.Group().add(new Planet(0.45,141,'src/assets/Earth/earth.jpg').getPlanet());
+const mars = new THREE.Group().add(new Planet(0.25,181,'src/assets/Mars/mars.jpg').getPlanet());
+const jupiter = new THREE.Group().add(new Planet(3,220,'src/assets/jupiter/jupiter.jpg').getPlanet());
+const saturn = new THREE.Group().add(new Planet(1,250,'src/assets/saturn/saturn.jpg').getPlanet());
+const uranus = new THREE.Group().add(new Planet(0.75,300,'src/assets/unanus/uranus.jpg').getPlanet());
+const neptune = new THREE.Group().add(new Planet(0.100,350,'src/assets/neptune/neptune.jpg').getPlanet());
+const pluto = new THREE.Group().add(new Planet(0.45,250,'src/assets/pluto/pluto.jpg').getPlanet());
+
 
 
 var solar_system = 
 	new THREE.Group().add(
 		sun,
 		earth,
-		mercury
+		mercury,
+		mars,
+		jupiter,
+		saturn,
+		uranus,
+		neptune,
+		pluto,
 	);
+
 scene.add(solar_system);
 
 
@@ -67,7 +81,12 @@ function animate() {
 	sun.rotation.y += 0.001;
 	mercury.rotation.y += EARTH_YEAR * 4;
 	earth.rotation.y += EARTH_YEAR;
-
+	mars.rotation.y += EARTH_YEAR;
+    jupiter.rotation.y+= EARTH_YEAR
+	saturn.rotation.y+= EARTH_YEAR
+	uranus.rotation.y+= EARTH_YEAR
+	neptune.rotation.y+= EARTH_YEAR
+	pluto.rotation.y+= EARTH_YEAR
 	requestAnimationFrame( animate );		
 	controls.update();	
 	renderer.render( scene, camera );
