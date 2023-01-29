@@ -47,7 +47,7 @@ function init() {
 	//container.appendChild( stats.dom );
 	window.addEventListener( 'click', onPointerMove );
 
-	window.requestAnimationFrame(render);
+	
 
 	
 }
@@ -101,7 +101,7 @@ function animate() {
 	pluto.rotation.y+= EARTH_YEAR;
 
 	requestAnimationFrame( animate );		
-	render();
+	renderer.render( scene, camera );
 	
 }
 
@@ -121,32 +121,6 @@ function onPointerMove( event ) {
 
 
 animate();
-function render() {
-
-	theta += 0.1;
-
-	camera.position.x = radius * Math.sin( THREE.MathUtils.degToRad( theta ) );
-	camera.position.y = radius * Math.sin( THREE.MathUtils.degToRad( theta ) );
-	camera.position.z = radius * Math.cos( THREE.MathUtils.degToRad( theta ) );
-	camera.lookAt( scene.position );
-
-	camera.updateMatrixWorld();
-
-	// find intersections
-
-	raycaster.setFromCamera( pointer, camera );
-
-	const intersects = raycaster.intersectObjects( scene.children, false );
-
-	if ( intersects.length > 0 ) {
-
-		console.log(intersects[ 0 ].object);
-
-	} 
-
-	renderer.render( scene, camera );
-
-}
 
 
 
