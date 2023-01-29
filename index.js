@@ -102,11 +102,11 @@ function animate() {
 		venus.rotation.y += EARTH_YEAR * 2;
 		earth.rotation.y += EARTH_YEAR;
 		mars.rotation.y += EARTH_YEAR  * 0.5;
-		jupiter.rotation.y+= EARTH_YEAR;
-		saturn.rotation.y+= EARTH_YEAR;
-		uranus.rotation.y+= EARTH_YEAR;
-		neptune.rotation.y+= EARTH_YEAR;
-		pluto.rotation.y+= EARTH_YEAR;
+		jupiter.rotation.y+= EARTH_YEAR * 0.083;
+		saturn.rotation.y+= EARTH_YEAR * 0.034;
+		uranus.rotation.y+= EARTH_YEAR * 0.011;
+		neptune.rotation.y+= EARTH_YEAR * 0.006;
+		pluto.rotation.y+= EARTH_YEAR * 0.004;
 	}
 
 	requestAnimationFrame( animate );		
