@@ -24,7 +24,7 @@ function init() {
 	plight = new THREE.PointLight( 0xff0000, 1, 0 );
 	
 	
-	camera.position.set(0,0,500);
+	camera.position.set(0,0,100);
 	ambientLight.position.set(0, 20, 20);
 	plight.position.set( 0, 0, 0 );
 	
@@ -55,8 +55,8 @@ function init() {
 
 // Adding Planets
 
-const sun = new THREE.Group().add(new Star(30,0,'src/assets/Sun/sun.jpeg').getStar());
-const mercury = new THREE.Group().add(new Planet(0.15,89,'src/assets/Mercury/mercury.jpg').getPlanet());
+const sun = new THREE.Group().add(new Star(25,0,'src/assets/Sun/sun.jpeg').getStar());
+const mercury = new THREE.Group().add(new Planet(0.30,89,'src/assets/Mercury/mercury.jpg').getPlanet());
 const venus = new THREE.Group().add(new Planet(0.42,97,'src/assets/Venus/venus.jpg').getPlanet());
 const earth = new THREE.Group().add(new Planet(0.45,141,'src/assets/Earth/earth.jpg').getPlanet());
 const mars = new THREE.Group().add(new Planet(0.25,181,'src/assets/Mars/mars.jpg').getPlanet());
@@ -64,7 +64,7 @@ const jupiter = new THREE.Group().add(new Planet(3,220,'src/assets/jupiter/jupit
 const saturn = new THREE.Group().add(new Planet(1,250,'src/assets/saturn/saturn.jpg').getPlanet());
 const uranus = new THREE.Group().add(new Planet(0.75,300,'src/assets/uranus/uranus.jpg').getPlanet());
 const neptune = new THREE.Group().add(new Planet(0.100,350,'src/assets/neptune/neptune.jpg').getPlanet());
-const pluto = new THREE.Group().add(new Planet(0.45,250,'src/assets/Pluto/pluto.jpg').getPlanet());
+const pluto = new THREE.Group().add(new Planet(0.60,250,'src/assets/Pluto/pluto.jpg').getPlanet());
 
 
 
@@ -92,8 +92,9 @@ const EARTH_YEAR = 2 * Math.PI * (1/60) * (1/60);
 function animate() {
 	sun.rotation.y += 0.001;
 	mercury.rotation.y += EARTH_YEAR * 4;
+	venus.rotation.y += EARTH_YEAR * 2;
 	earth.rotation.y += EARTH_YEAR;
-	mars.rotation.y += EARTH_YEAR;
+	mars.rotation.y += EARTH_YEAR  * 0.5;
     jupiter.rotation.y+= EARTH_YEAR;
 	saturn.rotation.y+= EARTH_YEAR;
 	uranus.rotation.y+= EARTH_YEAR;

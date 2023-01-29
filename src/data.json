@@ -58,8 +58,8 @@
         "distance_from_sun": "2.7797 billion miles" 
     },
     {
-        "id": Dwarf Planet,
-        "name": "Pluto",
+        "id": 9,
+        "name": "Dwarf Planet, Pluto",
         "diameter": "1,476.8 miles",
         "times_smaller_than_sun": " 585",
         "distance_from_sun": "3.7 billion miles" 
