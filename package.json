@@ -1,0 +1,25 @@
+{
+  "name": "solarsystemmetaverse",
+  "description": "solar system project for rai",
+  "version": "1.0.0",
+  "main": "index.html",
+  "type": "module",
+  "devDependencies": {
+    "three": "^0.149.0"
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maroldanvega07/rai-solar-system.git"
+  },
+  "keywords": [
+    "solar-system"
+  ],
+  "author": "Sarai Roldan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maroldanvega07/rai-solar-system/issues"
+  },
+  "homepage": "https://github.com/maroldanvega07/rai-solar-system#readme"
+  
+}
