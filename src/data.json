@@ -4,16 +4,68 @@
     {
         "id": 1,
         "name": "Mercury",
-        "diameter": "",
-        "times_bigger": "",
-        "distance_from_sun": "1 mile"
+        "diameter": "3,031.9 miles",
+        "times_smaller_than_sun": "227 ",
+        "distance_from_sun": "39.727 million miles"
     },
     {
         "id": 2,
         "name": "Venus",
-        "diameter": "",
-        "times_bigger": "",
-        "distance_from_sun": "1 mile"
+        "diameter": "7,520.8 miles",
+        "times_smaller_than_sun": "115",
+        "distance_from_sun": "67.5 million miles"
+    },
+    {
+        "id": 3,
+        "name": "Earth",
+        "diameter": "7,917.5 miles",
+        "times_smaller_than_sun": " 109",
+        "distance_from_sun": "91.559 million miles" 
+    },
+    {
+        "id": 4,
+        "name": "Mars",
+        "diameter": "4,212.3 miles",
+        "times_smaller_than_sun": " 207",
+        "distance_from_sun": "149.35 million miles" 
+    },
+    {
+        "id": 5,
+        "name": "Jupiter",
+        "diameter": "86,881 miles",
+        "times_smaller_than_sun": " 11",
+        "distance_from_sun": "460.25 million miles" 
+    },
+    {
+        "id": 6,
+        "name": "Saturn <3",
+        "diameter": "72,367 miles",
+        "times_smaller_than_sun": " 12",
+        "distance_from_sun": "912.41 million miles" 
+    },
+    {
+        "id": 7,
+        "name": "Uranus",
+        "diameter": "31,518 miles",
+        "times_smaller_than_sun": " 27.4",
+        "distance_from_sun": " 1.8274 billion miles" 
+    },
+    {
+        "id": 8,
+        "name": "Neptune",
+        "diameter": "30,599 miles",
+        "times_smaller_than_sun": " 27.7",
+        "distance_from_sun": "2.7797 billion miles" 
+    },
+    {
+        "id": Dwarf Planet,
+        "name": "Pluto",
+        "diameter": "1,476.8 miles",
+        "times_smaller_than_sun": " 585",
+        "distance_from_sun": "3.7 billion miles" 
     }
+
+
+
+
 ]
-}
