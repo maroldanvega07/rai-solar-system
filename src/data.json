@@ -1,0 +1,19 @@
+{
+    "planets":
+[
+    {
+        "id": 1,
+        "name": "Mercury",
+        "diameter": "",
+        "times_bigger": "",
+        "distance_from_sun": "1 mile"
+    },
+    {
+        "id": 2,
+        "name": "Venus",
+        "diameter": "",
+        "times_bigger": "",
+        "distance_from_sun": "1 mile"
+    }
+]
+}
