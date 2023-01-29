@@ -3,15 +3,31 @@
 import * as THREE from './node_modules/three/build/three.module.js';
 import { OrbitControls } from './node_modules/three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from './node_modules/three/examples/jsm/loaders/GLTFLoader.js';
+//import { ObjectLoader } from './node_modules/three/examples/jsm/loaders/ObjectLoader.js';
 import Stats from './node_modules/three/examples/jsm/libs/stats.module.js';
 import Planet  from './src/classes/planet.js';
 import Star  from './src/classes/star.js';
 import Buttons from './src/classes/buttons.js';
 
-let enableRotation=true, stats, INTERSECTED, radius, theta =0, raycaster, pointer, scene, camera, ambientLight, controls, renderer, plight, container = document.getElementById("canvas");;
+let loader, enableRotation=true, stats, INTERSECTED, radius, theta =0, raycaster, pointer, scene, camera, ambientLight, controls, renderer, plight, container = document.getElementById("canvas");;
+
+const response = await fetch('./src/data.json');
+const data = await response.json();
+
 init();
 
+
+
+function showPlanetData(i) {
+	console.log(data);
+}
+
+
+
+
 function init() {
+	
+	
 	raycaster = new THREE.Raycaster();
     pointer = new THREE.Vector2();
 	scene = new THREE.Scene();
@@ -39,11 +55,22 @@ function init() {
 	}
 	controls.update();
 
-	const buttons = new Buttons().addPlanetButtons();
+	const buttons = new Buttons();
+	buttons.addPlanetButtons();
+
 
 	document.getElementById('toggleRotation').addEventListener('click', function() {
 		enableRotation = !enableRotation;
 	})
+
+	var planetbuttons = document.getElementsByClassName('planetbuttons');
+	console.log(planetbuttons);
+
+	for (var i = 0; i < planetbuttons.length; i++) {
+		planetbuttons.item(i).addEventListener('click', function() {
+			console.log(planetbuttons.item(i).id);
+		});
+	}
 
 	renderer.setSize(container.clientWidth, container.clientHeight);
 	renderer.setPixelRatio(window.devicePixelRatio);
@@ -52,9 +79,6 @@ function init() {
 	//container.appendChild( stats.dom );
 	window.addEventListener( 'click', onPointerMove );
 
-	
-
-	
 }
 
 
