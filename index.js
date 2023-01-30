@@ -4,6 +4,10 @@ import * as THREE from './node_modules/three/build/three.module.js';
 import { OrbitControls } from './node_modules/three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from './node_modules/three/examples/jsm/loaders/GLTFLoader.js';
 import { FlyControls } from './node_modules/three/examples/jsm/controls/FlyControls.js';
+import { FontLoader } from './node_modules/three/examples/jsm/loaders/FontLoader.js';
+import { TextGeometry } from './node_modules/three/examples/jsm/geometries/TextGeometry.js';
+
+
 //import { ObjectLoader } from './node_modules/three/examples/jsm/loaders/ObjectLoader.js';
 import Stats from './node_modules/three/examples/jsm/libs/stats.module.js';
 import Planet  from './src/classes/planet.js';
@@ -96,17 +100,35 @@ window.addEventListener('keydown', supressKeys);
 	container.appendChild( renderer.domElement );
 	stats = new Stats();
 	//container.appendChild( stats.dom );
-	window.addEventListener( 'click', onPointerMove );
+	
 
 }
 
+const text_loader = new FontLoader();
+let text_geometry;
+text_loader.load( './node_modules/three/examples/fonts/helvetiker_regular.typeface.json', function ( font ) {
+
+	text_geometry = new TextGeometry( 'Earth (3)', {
+		font: font,
+		size: 30,
+		height: 5,
+		curveSegments: 12,
+		bevelEnabled: true,
+		bevelThickness: 10,
+		bevelSize: 8,
+		bevelOffset: 0,
+		bevelSegments: 5
+	} );
+} );
 
 // Adding Planets
 
 const sun = new THREE.Group().add(new Star(25,0,'src/assets/Sun/sun.jpeg').getStar());
 const mercury = new THREE.Group().add(new Planet(0.30,89,'src/assets/Mercury/mercury.jpg').getPlanet());
 const venus = new THREE.Group().add(new Planet(0.42,97,'src/assets/Venus/venus.jpg').getPlanet());
-const earth = new THREE.Group().add(new Planet(0.45,141,'src/assets/Earth/earth.jpg').getPlanet());
+
+const earth_planet = new Planet(0.45,141,'src/assets/Earth/earth.jpg');
+const earth = new THREE.Group().add(earth_planet.getPlanet());
 const mars = new THREE.Group().add(new Planet(0.25,181,'src/assets/Mars/mars.jpg').getPlanet());
 const jupiter = new THREE.Group().add(new Planet(3,220,'src/assets/jupiter/jupiter.jpg').getPlanet());
 const saturn = new THREE.Group().add(new Planet(1,250,'src/assets/saturn/saturn.jpg').getPlanet());
@@ -125,18 +147,28 @@ scene.add(saturn);
 scene.add(uranus);
 scene.add(neptune);
 scene.add(pluto);
-
+scene.updateMatrixWorld(true);
+earth_planet.updateMatrixWorld = true;
 
 var planetbuttons = document.getElementsByClassName('planetbuttons');
-	
+let earth_planet_2 = earth_planet.getPlanet();
 //let id = document.getElementsByTagName("a")[0].id;
 	for (var i = 0; i < planetbuttons.length; i++) {
 		let id =document.getElementsByClassName('planetbuttons')[i].id;
+		
 		planetbuttons.item(i).addEventListener('click', function(i) {
 			console.log(id);
 			showPlanetData(parseInt(id-1));
 			enableRotation = false;
-			camera.lookAt(earth.getWorldPosition);
+			earth_planet.resetPosition();
+			
+
+			
+			
+			camera.position.set(151,0,0);
+
+			camera.lookAt(141,0,0);
+			
 		});
 	}
 
@@ -157,7 +189,11 @@ function animate() {
 		uranus.rotation.y+= EARTH_YEAR * 0.011;
 		neptune.rotation.y+= EARTH_YEAR * 0.006;
 		pluto.rotation.y+= EARTH_YEAR * 0.004;
+	
 	}
+	
+	earth_planet_2.rotation.y += 0.001;
+
 	const now = new Date();
 	var secs = (now - lt) / 1000;
 	flyControls.update(secs);
@@ -169,16 +205,6 @@ function animate() {
 
 
 
-
-function onPointerMove( event ) {
-
-	// calculate pointer position in normalized device coordinates
-	// (-1 to +1) for both components
-
-	pointer.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-	pointer.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
-
-}
 
 let lt = new Date();
 animate();

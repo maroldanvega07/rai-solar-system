@@ -14,9 +14,17 @@ export default class Planet {
             const material = new THREE.MeshBasicMaterial({map: texture});
             this.mesh = new THREE.Mesh(geometry,material);
             this.mesh.position.x = this.positionX;
+            this.mesh.position.y = 0;
+            this.mesh.position.z = 0;
             this.mesh.frustumCulled = false;
             
         }
         return this.mesh
+    }
+
+    resetPosition() {
+        this.mesh.position.x = this.positionX;
+        this.mesh.position.y = 0;
+        this.mesh.position.z = 0;
     }
 }
