@@ -172,10 +172,10 @@ const mars_group = new THREE.Group().add(mars.getPlanet());
 
 
 
-const jupiter = new Planet(3,220,'src/assets/jupiter/jupiter.jpg');
+const jupiter = new Planet(3,220,'src/assets/Jupiter/jupiter.jpg');
 const jupiter_group = new THREE.Group().add(jupiter.getPlanet());
 
-const saturn = new Planet(2,250,'src/assets/saturn/saturn.jpg');
+const saturn = new Planet(2,250,'src/assets/Saturn/saturn.jpg');
 const saturn_group = new THREE.Group().add(saturn.getPlanet());
 
 const rgeometry = new THREE.RingGeometry( 2.8, 4, 50, 1, 5, Math.PI * 2 );
@@ -190,10 +190,10 @@ rmesh.frustumCulled = false;
 saturn_group.add(rmesh);
 
 
-const uranus = new Planet(1,300,'src/assets/uranus/uranus.jpg');
+const uranus = new Planet(1,300,'src/assets/Uranus/uranus.jpg');
 const uranus_group = new THREE.Group().add(uranus.getPlanet());
 
-const neptune = new Planet(1.5,350,'src/assets/neptune/neptune.jpg');;
+const neptune = new Planet(1.5,350,'src/assets/Neptune/neptune.jpg');;
 const neptune_group = new THREE.Group().add(neptune.getPlanet());
 
 const pluto = new Planet(0.15,375,'src/assets/Pluto/pluto.jpg');
