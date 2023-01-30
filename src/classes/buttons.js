@@ -86,11 +86,7 @@ export default class Buttons {
         this.buttonControls.appendChild(btn10); 
 
 
-        var btn = document.createElement("button");
-        btn.innerHTML = "Control Rotation";
-        btn.id = 'toggleRotation';
-        btn.className = "planetbuttons btn btn-secondary";
-        this.buttonControls.appendChild(btn); 
+
 
     
      

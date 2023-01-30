@@ -5,6 +5,7 @@ export default class Planet {
         this.radius = radius;
         this.positionX = positionX;
         this.textureFile = textureFile;
+        this.mesh = null;
     }
 
     getPlanet() {
@@ -18,13 +19,15 @@ export default class Planet {
             this.mesh.position.z = 0;
             this.mesh.frustumCulled = false;
             
+            
         }
         return this.mesh
     }
 
-    resetPosition() {
-        this.mesh.position.x = this.positionX;
+    resetPosition(x) {
+        this.mesh.position.x =  x;
         this.mesh.position.y = 0;
         this.mesh.position.z = 0;
+        
     }
 }

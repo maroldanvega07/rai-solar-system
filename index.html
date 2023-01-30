@@ -24,20 +24,44 @@
     <div id="canvas">
         <div id="splash" style="color:white; padding-left:10px;">
             <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h2>Solar System Project</h2>
+                        <p>Sarai Roldan | Oakridge Elementary School</p>
+                        <p>Belizor | 5th Grade | February 1st, 2023</p>
+                    </div>
+                    <div class="col-md-8" style="padding-top: 10px;">
+                        <div id="buttons"></div>
+                    </div>
+                    <div id="info-section"></div>
+                </div>
+                
+            </div>
+        </div> 
+        <div class="container">
             <div class="row">
-                <div class="col-md-4">
-                    <h2>Solar System Project</h2>
-                    <p>Sarai Roldan | Oakridge Elementary School</p>
-                    <p>Belizor | 5th Grade | February 1st, 2023</p>
-                </div>
-                <div class="col-md-4" style="padding-top: 10px;">
-                    <div id="buttons"></div>
-                </div>
-                <div id="info-section"></div>
-            </div>
+                <div class="col-md-12">
+                <div  id="navigation" style="position: absolute; 
+                bottom: 0; 
+                text-align: center;
+                width: 60%; 
+                height: 50px; 
+                border: 1px solid white;">
+                    <button id="control_button_L" class="btn btn-success">Left</button>
+                    <button id="control_button_F" class="btn btn-success">Forward</button>
+                    <button id="control_button_B" class="btn btn-success">Backwards</button>                    
+                    <button id="control_button_R" class="btn btn-success">Right</button>
+                    <button id="control_button_U" class="btn btn-success">Up</button>                    
+                    
+                    <button id="control_button_D" class="btn btn-success">Down</button>                    
+                    <button id="control_button_rotate_right" class="btn btn-success">Rotate ></button>                    
 
-            </div>
-        </div>                        
+                    <button id="control_button_roation" class="btn btn-danger">Rotation Start/Stop</button>
+                </div>
+            </div>  
+        </div>
     </div>
+    
+</div>
 </body>
 </html>
