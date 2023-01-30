@@ -13,7 +13,7 @@ export default class Buttons {
         
         var btn1 = document.createElement("button");
         btn1.innerHTML = "Sun";
-        btn1.id = "0";
+        btn1.id = "10";
         btn1.className = "planetbuttons btn btn-primary";
         this.buttonControls.appendChild(btn1);   
         
