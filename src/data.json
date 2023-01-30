@@ -32,7 +32,7 @@
                 "diameter": "4,212.3 miles",
                 "times_smaller_than_sun": " 207",
                 "distance_from_sun": "149.35 million miles" ,
-                "fact": ""
+                "fact": " Mars has a weaker gravity than Earth. A day on Mars is 24.6 hours."
             },
             {
                 "id": 5,
@@ -40,7 +40,7 @@
                 "diameter": "86,881 miles",
                 "times_smaller_than_sun": " 11",
                 "distance_from_sun": "460.25 million miles",
-                "fact": "" 
+                "fact": "   Jupiter is more than twice as massive as all the other planets combined. Jupiter's stripes and swirls are actually cold, windy clouds of ammonia and water in an atmosphere of hydrogen and helium." 
             },
             {
                 "id": 6,
@@ -48,7 +48,7 @@
                 "diameter": "72,367 miles",
                 "times_smaller_than_sun": " 12",
                 "distance_from_sun": "912.41 million miles" ,
-                "fact": ""
+                "fact": " You couldn't stand on Saturn, because there's no solid surface to stand on. Out of Saturn’s 82 known moons, only 53 actually have names."
             },
             {
                 "id": 7,
@@ -56,7 +56,7 @@
                 "diameter": "31,518 miles",
                 "times_smaller_than_sun": "27.4",
                 "distance_from_sun": " 1.8274 billion miles",
-                "fact": "" 
+                "fact": "Uranus is surrounded by a set of 13 rings. Uranus spins the opposite direction as Earth and most other planets." 
             },
             {
                 "id": 8,
@@ -64,7 +64,7 @@
                 "diameter": "30,599 miles",
                 "times_smaller_than_sun": "27.7",
                 "distance_from_sun": "2.7797 billion miles",
-                "fact": "" 
+                "fact": " Neptune is about four times wider than Earth. Neptune has 14 moons." 
             },
             {
                 "id": 9,
@@ -72,7 +72,7 @@
                 "diameter": "1,476.8 miles",
                 "times_smaller_than_sun": "585",
                 "distance_from_sun": "3.7 billion miles",
-                "fact": "" 
+                "fact": "Pluto is smaller than the Moon.  Pluto got its name from 11-year-old Venetia Burney." 
             },
             {
                 "id": 10,
