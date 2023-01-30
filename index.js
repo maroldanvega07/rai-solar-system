@@ -3,13 +3,14 @@
 import * as THREE from './node_modules/three/build/three.module.js';
 import { OrbitControls } from './node_modules/three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from './node_modules/three/examples/jsm/loaders/GLTFLoader.js';
+import { FlyControls } from './node_modules/three/examples/jsm/controls/FlyControls.js';
 //import { ObjectLoader } from './node_modules/three/examples/jsm/loaders/ObjectLoader.js';
 import Stats from './node_modules/three/examples/jsm/libs/stats.module.js';
 import Planet  from './src/classes/planet.js';
 import Star  from './src/classes/star.js';
 import Buttons from './src/classes/buttons.js';
 
-let loader, enableRotation=true, stats, INTERSECTED, radius, theta =0, raycaster, pointer, scene, camera, ambientLight, controls, renderer, plight, container = document.getElementById("canvas");;
+let flyControls, loader, enableRotation=true, stats, INTERSECTED, radius, theta =0, raycaster, pointer, scene, camera, ambientLight, controls, renderer, plight, container = document.getElementById("canvas");;
 
 const response = await fetch('./src/data.json');
 const data = await response.json();
@@ -37,6 +38,8 @@ function init() {
     pointer = new THREE.Vector2();
 	scene = new THREE.Scene();
 	camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000)
+	camera.position.set(0,0,100);
+	camera.lookAt(0,0,0);
 	ambientLight = new THREE.AmbientLight("#ffffff", 1);
 	renderer = new THREE.WebGLRenderer({
 		antialias: true,
@@ -45,20 +48,38 @@ function init() {
 	plight = new THREE.PointLight( 0xff0000, 1, 0 );
 	
 	
-	camera.position.set(0,0,100);
+	
 	ambientLight.position.set(0, 20, 20);
 	plight.position.set( 0, 0, 0 );
 	
 	scene.add( plight);
 	scene.add(ambientLight);
 			
-	controls = new OrbitControls( camera, renderer.domElement);
-	controls.mouseButtons = {
-		LEFT: THREE.MOUSE.ROTATE,
-		MIDDLE: THREE.MOUSE.DOLLY,
-		RIGHT: THREE.MOUSE.PAN
-	}
-	controls.update();
+	flyControls = new FlyControls(camera, renderer.domElement);
+	
+	flyControls.dragToLook = true;
+	flyControls.movementSpeed = 0.01;
+	//flyControls.rollSpeed = Math.PI / 24;
+	flyControls.autoForward = false;
+
+	flyControls.addEventListener('change', (evnt) => {
+			
+	});
+	// supress up and down
+const supressKeys = (evnt) => {
+    if(evnt.key === 'ArrowUp' || evnt.key === 'ArrowDown'){
+        evnt.preventDefault();
+    }
+};
+window.addEventListener('keyup', supressKeys);
+window.addEventListener('keydown', supressKeys);
+	// controls = new OrbitControls( camera, renderer.domElement);
+	// controls.mouseButtons = {
+	// 	LEFT: THREE.MOUSE.ROTATE,
+	// 	MIDDLE: THREE.MOUSE.DOLLY,
+	// 	RIGHT: THREE.MOUSE.PAN
+	// }
+	// controls.update();
 
 	const buttons = new Buttons();
 	buttons.addPlanetButtons();
@@ -68,16 +89,7 @@ function init() {
 		enableRotation = !enableRotation;
 	})
 
-	var planetbuttons = document.getElementsByClassName('planetbuttons');
-	
-//let id = document.getElementsByTagName("a")[0].id;
-	for (var i = 0; i < planetbuttons.length; i++) {
-		let id =document.getElementsByClassName('planetbuttons')[i].id;
-		planetbuttons.item(i).addEventListener('click', function(i) {
-			console.log(id);
-			showPlanetData(parseInt(id-1));
-		});
-	}
+
 
 	renderer.setSize(container.clientWidth, container.clientHeight);
 	renderer.setPixelRatio(window.devicePixelRatio);
@@ -103,23 +115,30 @@ const neptune = new THREE.Group().add(new Planet(0.100,350,'src/assets/neptune/n
 const pluto = new THREE.Group().add(new Planet(0.60,250,'src/assets/Pluto/pluto.jpg').getPlanet());
 
 
-
-var solar_system = 
-	new THREE.Group().add(
-		sun,
-		earth,
-		mercury,
-		mars,
-		jupiter,
-		saturn,
-		uranus,
-		neptune,
-		pluto,
-	);
-
-scene.add(solar_system);
+scene.add(sun);
+scene.add(mercury);
+scene.add(venus);
+scene.add(earth);
+scene.add(mars);
+scene.add(jupiter);
+scene.add(saturn);
+scene.add(uranus);
+scene.add(neptune);
+scene.add(pluto);
 
 
+var planetbuttons = document.getElementsByClassName('planetbuttons');
+	
+//let id = document.getElementsByTagName("a")[0].id;
+	for (var i = 0; i < planetbuttons.length; i++) {
+		let id =document.getElementsByClassName('planetbuttons')[i].id;
+		planetbuttons.item(i).addEventListener('click', function(i) {
+			console.log(id);
+			showPlanetData(parseInt(id-1));
+			enableRotation = false;
+			camera.lookAt(earth.getWorldPosition);
+		});
+	}
 
 
 
@@ -139,7 +158,9 @@ function animate() {
 		neptune.rotation.y+= EARTH_YEAR * 0.006;
 		pluto.rotation.y+= EARTH_YEAR * 0.004;
 	}
-
+	const now = new Date();
+	var secs = (now - lt) / 1000;
+	flyControls.update(secs);
 	requestAnimationFrame( animate );		
 	renderer.render( scene, camera );
 	
@@ -159,7 +180,7 @@ function onPointerMove( event ) {
 
 }
 
-
+let lt = new Date();
 animate();
 
 
