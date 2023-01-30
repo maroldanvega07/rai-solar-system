@@ -398,7 +398,7 @@ function add_asteriod_belt() {
 		// Create a texture loader so we can load our image file
 		console.log("adding asteroid");
 		const asteroid = new THREE.SphereGeometry(0.2);
-		const texture = new THREE.TextureLoader().load('/src/assets/AsteroidBelt/asteroid_belt.jpg');
+		const texture = new THREE.TextureLoader().load('src/assets/AsteroidBelt/asteroid_belt.jpg');
 		const material = new THREE.MeshBasicMaterial({map: texture});
 		mesh = new THREE.Mesh(asteroid, material);
 		var ast2 = new THREE.Mesh(asteroid, material);
