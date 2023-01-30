@@ -24,7 +24,7 @@ function showPlanetData(i) {
 	var planet_data = data.planets[i];
 	var info = document.getElementById('info-section');
 	info.style = "color:white";
-	info.innerHTML = "<h2>"+planet_data.name+"</h2><table class='table' style='color:white' ><tr><th>Diameter</th><th>Times Smaller Then The Sun</th><th>Distance From Sun</th></tr><tr><td>"+planet_data.diameter+"</td><td>"+planet_data.times_smaller_than_sun+"</td><td>"+planet_data.distance_from_sun+"</td></tr></table>";
+	info.innerHTML = "<h2>"+planet_data.name+"</h2><table class='table' style='color:white' ><tr><th>Diameter</th><th>Times Smaller Then The Sun</th><th>Distance From Sun</th><th>Fact</th></tr><tr><td>"+planet_data.diameter+"</td><td>"+planet_data.times_smaller_than_sun+"</td><td>"+planet_data.distance_from_sun+"</td><td>"+planet_data.fact +"</td></tr></table>";
 	
 }
 

@@ -6,71 +6,81 @@
                 "name": "Mercury",
                 "diameter": "3,031.9 miles",
                 "times_smaller_than_sun": "227 ",
-                "distance_from_sun": "39.727 million miles"
+                "distance_from_sun": "39.727 million miles",
+                "fact": "Mercury has the most craters in the Solar System. A day on Mercury takes 59 Earth days. "
+            
             },
             {
                 "id": 2,
                 "name": "Venus",
                 "diameter": "7,520.8 miles",
                 "times_smaller_than_sun": "115",
-                "distance_from_sun": "67.5 million miles"
+                "distance_from_sun": "67.5 million miles",
+                "fact":""
             },
             {
                 "id": 3,
                 "name": "Earth",
                 "diameter": "7,917.5 miles",
                 "times_smaller_than_sun": " 109",
-                "distance_from_sun": "91.559 million miles" 
+                "distance_from_sun": "91.559 million miles",
+                "fact": ""
             },
             {
                 "id": 4,
                 "name": "Mars",
                 "diameter": "4,212.3 miles",
                 "times_smaller_than_sun": " 207",
-                "distance_from_sun": "149.35 million miles" 
+                "distance_from_sun": "149.35 million miles" ,
+                "fact": ""
             },
             {
                 "id": 5,
                 "name": "Jupiter",
                 "diameter": "86,881 miles",
                 "times_smaller_than_sun": " 11",
-                "distance_from_sun": "460.25 million miles" 
+                "distance_from_sun": "460.25 million miles",
+                "fact": "" 
             },
             {
                 "id": 6,
                 "name": "Saturn ",
                 "diameter": "72,367 miles",
                 "times_smaller_than_sun": " 12",
-                "distance_from_sun": "912.41 million miles" 
+                "distance_from_sun": "912.41 million miles" ,
+                "fact": ""
             },
             {
                 "id": 7,
                 "name": "Uranus",
                 "diameter": "31,518 miles",
                 "times_smaller_than_sun": "27.4",
-                "distance_from_sun": " 1.8274 billion miles" 
+                "distance_from_sun": " 1.8274 billion miles",
+                "fact": "" 
             },
             {
                 "id": 8,
                 "name": "Neptune",
                 "diameter": "30,599 miles",
                 "times_smaller_than_sun": "27.7",
-                "distance_from_sun": "2.7797 billion miles" 
+                "distance_from_sun": "2.7797 billion miles",
+                "fact": "" 
             },
             {
                 "id": 9,
                 "name": "Dwarf Planet : Pluto",
                 "diameter": "1,476.8 miles",
                 "times_smaller_than_sun": "585",
-                "distance_from_sun": "3.7 billion miles" 
+                "distance_from_sun": "3.7 billion miles",
+                "fact": "" 
             },
             {
                 "id": 10,
                 "name": "Sun",
                 "diameter": "865,370 miles",
                 "times_smaller_than_sun": "0",
-                "distance_from_sun": "0 miles"
-                }
-            
+                "distance_from_sun": "0 miles",
+                "fact": "The sun is over 4.5 billion years old. when the sun dissapeers from the sky in the day , that is called a solar eclipse. this is caused when then the moon is between the sun and earth. "
+            }
         ]
     }
