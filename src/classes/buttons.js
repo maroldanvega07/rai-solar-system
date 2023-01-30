@@ -8,14 +8,12 @@ export default class Buttons {
     
     addPlanetButtons() {
         
-        var btn = document.createElement("button");
-        btn.innerHTML = "Control Rotation";
-        btn.id = 'toggleRotation';
-        this.buttonControls.appendChild(btn);   
+        
+         
         
         var btn1 = document.createElement("button");
         btn1.innerHTML = "Sun";
-        btn1.id = "0";
+        btn1.id = "10";
         btn1.className = "planetbuttons btn btn-primary";
         this.buttonControls.appendChild(btn1);   
         
@@ -55,7 +53,44 @@ export default class Buttons {
         btn6.innerHTML = "Jupiter";
         btn6.id = "5";
         btn6.className = "planetbuttons btn btn-primary";
-        this.buttonControls.appendChild(btn6);   
+        this.buttonControls.appendChild(btn6); 
+        
+        
+        
+        var btn7 = document.createElement("button");
+        btn7.innerHTML = "Saturn";
+        btn7.id = "6";
+        btn7.className = "planetbuttons btn btn-primary";
+        this.buttonControls.appendChild(btn7); 
+
+        
+        var btn8 = document.createElement("button");
+        btn8.innerHTML = "Uranus";
+        btn8.id = "7";
+        btn8.className = "planetbuttons btn btn-primary";
+        this.buttonControls.appendChild(btn8); 
+
+        
+        var btn9 = document.createElement("button");
+        btn9.innerHTML = "Neptune";
+        btn9.id = "8";
+        btn9.className = "planetbuttons btn btn-primary";
+        this.buttonControls.appendChild(btn9); 
+
+
+        
+        var btn10 = document.createElement("button");
+        btn10.innerHTML = "Pluto";
+        btn10.id = "9";
+        btn10.className = "planetbuttons btn btn-primary";
+        this.buttonControls.appendChild(btn10); 
+
+
+        var btn = document.createElement("button");
+        btn.innerHTML = "Control Rotation";
+        btn.id = 'toggleRotation';
+        btn.className = "planetbuttons btn btn-secondary";
+        this.buttonControls.appendChild(btn); 
 
     
      
