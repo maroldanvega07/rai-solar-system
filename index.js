@@ -14,7 +14,7 @@ import Planet  from './src/classes/planet.js';
 import Star  from './src/classes/star.js';
 import Buttons from './src/classes/buttons.js';
 
-let flyControls, loader, enableRotation=false, stats, INTERSECTED, radius, theta =0, raycaster, pointer, scene, camera, ambientLight, controls, renderer, plight, container = document.getElementById("canvas");;
+let pivotPoint, moon_mesh, flyControls, loader, enableRotation=true, stats, INTERSECTED, radius, theta =0, raycaster, pointer, scene, camera, ambientLight, controls, renderer, plight, container = document.getElementById("canvas");;
 
 const response = await fetch('./src/data.json');
 const data = await response.json();
@@ -165,7 +165,26 @@ const venus = new Planet(0.42,97,'src/assets/Venus/venus.jpg');
 const venus_group = new THREE.Group().add(venus.getPlanet());
 
 const earth = new Planet(0.45,141,'src/assets/Earth/earth.jpg');
+const earth_mesh = earth.getPlanet();
+
+pivotPoint = new THREE.Object3D();
+earth_mesh.add(pivotPoint);
+
+
+const moon_geo = new THREE.SphereGeometry(0.08);
+const texture = new THREE.TextureLoader().load('src/assets/Mercury/mercury.jpg');
+const moon_material = new THREE.MeshBasicMaterial({map: texture});
+moon_mesh =  new THREE.Mesh(moon_geo,moon_material);
+moon_mesh.position.x = 142;
+moon_mesh.position.y = 0;
+moon_mesh.position.z = 0;
+pivotPoint.add(moon_mesh);
+const moon_group = new THREE.Group().add(pivotPoint);
+
+
+
 const earth_group = new THREE.Group().add(earth.getPlanet());
+earth_group.add(moon_group);
 
 const mars = new Planet(0.25,160,'src/assets/Mars/mars.jpg');
 const mars_group = new THREE.Group().add(mars.getPlanet());
@@ -302,17 +321,20 @@ function animate() {
 		venus_group.rotation.y += EARTH_YEAR * 2;
 		earth_group.rotation.y += EARTH_YEAR;
 		mars_group.rotation.y += EARTH_YEAR  * 0.5;
-		jupiter_group.rotation.y+= EARTH_YEAR * 0.09;
-		saturn_group.rotation.y+= EARTH_YEAR * 0.034;
-		uranus_group.rotation.y+= EARTH_YEAR * 0.011;
-		neptune_group.rotation.y+= EARTH_YEAR * 0.006;
-		pluto_group.rotation.y+= EARTH_YEAR * 0.004;
+		jupiter_group.rotation.y+= EARTH_YEAR * 0.22;
+		saturn_group.rotation.y+= EARTH_YEAR * 0.18;
+		uranus_group.rotation.y+= EARTH_YEAR * 0.14;
+		neptune_group.rotation.y+= EARTH_YEAR * 0.10;
+		pluto_group.rotation.y+= EARTH_YEAR * 0.09;
 		
 	}
+	moon_mesh.rotation.y += 0.02;
+	
 	sun.rotation.y -= 0.001;
 	mercury.getPlanet().rotation.y += 0.08;
 	venus.getPlanet().rotation.y += 0.05;
 	earth.getPlanet().rotation.y += 0.005;
+	
 	mars.getPlanet().rotation.y += 0.005;
 	jupiter.getPlanet().rotation.y += 0.003;
 	saturn.getPlanet().rotation.y += 0.005;
